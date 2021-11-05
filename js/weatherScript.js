@@ -48,7 +48,7 @@ function getWeather() {
       let undefnd = true
       for (let item = 0; item < citiesArr.length; item++) {
         if (citiesArr[item].name === localStorage.getItem("city") && citiesArr[item].country === localStorage.getItem("country")) {
-          fetch(`http://api.openweathermap.org/data/2.5/weather?id=${citiesArr[item].id}&appid=272d267ea4c0034b91826d86103da26f`)
+          fetch(`https://api.openweathermap.org/data/2.5/weather?id=${citiesArr[item].id}&appid=272d267ea4c0034b91826d86103da26f`)
           .then(function(resp) {return resp.json()})
           .then(function(data) {
             console.log(data);
