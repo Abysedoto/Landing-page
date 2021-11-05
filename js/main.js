@@ -40,7 +40,7 @@ function changeQuestion() {
 function cheakTimeChangeBackground() {
   let date = new Date(Date.now())
   if (date.getHours() >= 0 && date.getHours() <= 5) {
-    container.style.backgroundImage = `url(/img/background4.jpg)`
+    container.style.backgroundImage = `url(img/background4.jpg)`
     containerContent.style.color = "white";
     question.style.borderBottom = `3px solid white`;
     welcome.querySelector("#welcome-text").innerHTML = `Good&nbsp;night`
@@ -48,7 +48,7 @@ function cheakTimeChangeBackground() {
     document.querySelector(".temp").style.color = "white";
   }
   if (date.getHours() > 5 && date.getHours() < 12) {
-    container.style.backgroundImage = `url(/img/background1.jpg)`
+    container.style.backgroundImage = `url(img/background1.jpg)`
     containerContent.style.color = "white";
     question.style.borderBottom = `2px solid white`;
     welcome.querySelector("#welcome-text").innerHTML = `Good&nbsp;morning`
@@ -56,7 +56,7 @@ function cheakTimeChangeBackground() {
     document.querySelector(".temp").style.color = "white";
   }
   if (date.getHours() >= 12 && date.getHours() < 18) {
-    container.style.backgroundImage = `url(/img/background2.jpg)`
+    container.style.backgroundImage = `url(img/background2.jpg)`
     containerContent.style.color = "rgb(7, 35, 39)";
     question.style.borderBottom = `3px solid rgb(7, 35, 39)`;
     welcome.querySelector("#welcome-text").innerHTML = `Good&nbsp;afternoon`;
@@ -64,7 +64,7 @@ function cheakTimeChangeBackground() {
     document.querySelector(".temp").style.color = "rgb(7, 35, 39)";
   }
   if (date.getHours() >= 18 && date.getHours() <= 23) {
-    container.style.backgroundImage = `url(/img/background3.jpg)`
+    container.style.backgroundImage = `url(img/background3.jpg)`
     containerContent.style.color = "white";
     question.style.borderBottom = `2px solid white`;
     welcome.querySelector("#welcome-text").innerHTML = `Good&nbsp;evening`

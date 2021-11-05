@@ -7,7 +7,7 @@ body {
   overflow: hidden;
 }
 .container {
-  background-image: url(/img/background4.jpg);
+  background-image: url(img/background4.jpg);
   background-position: center;
   background-repeat: none;
   background-size: cover;

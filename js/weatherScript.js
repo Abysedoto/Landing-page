@@ -39,7 +39,7 @@ function setWeather() {
 function getWeather() {
   let citiesArr;
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "/assets/citylist.json")
+  xhr.open("GET", "assets/citylist.json")
   xhr.responseType = "json";
   xhr.send()
   xhr.onload = function() {
@@ -60,7 +60,7 @@ function getWeather() {
       }
       setTimeout(() => {
         resolve(undefnd)
-      }, 300);
+      }, 500);
     })
       prms.then((result) => {
         console.log("then выполнился");
@@ -77,33 +77,6 @@ function getWeather() {
           }, 1500);
         }
       })
-      // if (item.name === localStorage.getItem("city") && item.country === localStorage.getItem("country")) {
-      //   let prms = new Promise(function(resolve, reject) {
-      //     fetch(`http://api.openweathermap.org/data/2.5/weather?id=${item.id}&appid=272d267ea4c0034b91826d86103da26f`)
-      //     .then(function(resp) {return resp.json()})
-      //     .then(function(data) {
-      //       console.log(data);
-      //       tempValue.textContent = `${Math.round(data.main.temp - 273)}`
-      //       undefnd = false
-      //       console.log("промис выполнился");
-      //       resolve()
-      //     })   
-      //   }).then((resolve) => {
-      //       console.log("then выполнился");
-      //       if (undefnd) {
-      //       let warning = document.createElement("div")
-      //       warning.className = "warning";
-      //       warning.textContent = "City not found";
-      //       document.body.prepend(warning)
-      //       setTimeout(() => {
-      //         document.querySelector(".warning").style.opacity = "0"
-      //         setTimeout(() => {
-      //           document.querySelector(".warning").remove()
-      //         },500)
-      //       }, 1500);
-      //     }
-      //   })
-      // }
   }
 }
 
