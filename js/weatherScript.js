@@ -51,10 +51,8 @@ function getWeather() {
           fetch(`https://api.openweathermap.org/data/2.5/weather?id=${citiesArr[item].id}&appid=272d267ea4c0034b91826d86103da26f`)
           .then(function(resp) {return resp.json()})
           .then(function(data) {
-            console.log(data);
             tempValue.textContent = `${Math.round(data.main.temp - 273)}`
             undefnd = false
-            console.log("промис выполнился")
           })
         }
       }
@@ -63,7 +61,6 @@ function getWeather() {
       }, 500);
     })
       prms.then((result) => {
-        console.log("then выполнился");
         if (result) {
           let warning = document.createElement("div")
           warning.className = "warning";
