@@ -45,22 +45,30 @@ function getWeather() {
   xhr.onload = function() {
     citiesArr = xhr.response;
     let prms = new Promise((resolve, reject) => {
-      let undefnd = true
-      for (let item = 0; item < citiesArr.length; item++) {
-        if (citiesArr[item].name === localStorage.getItem("city") && citiesArr[item].country === localStorage.getItem("country")) {
-          fetch(`https://api.openweathermap.org/data/2.5/weather?id=${citiesArr[item].id}&appid=272d267ea4c0034b91826d86103da26f`)
-          .then(function(resp) {return resp.json()})
-          .then(function(data) {
-            tempValue.textContent = `${Math.round(data.main.temp - 273)}`
-            undefnd = false
-          })
+        let undefnd;
+        stopped:
+        for (let item = 0; item < citiesArr.length; item++) {
+          if (citiesArr[item].name === localStorage.getItem("city") && citiesArr[item].country === localStorage.getItem("country")) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?id=${citiesArr[item].id}&appid=272d267ea4c0034b91826d86103da26f`)
+            .then(function(resp) {return resp.json()})
+            .then(function(data) {
+              tempValue.textContent = `${Math.round(data.main.temp - 273)}`
+              undefnd = false;
+              resolve(undefnd);
+            })
+            break stopped;
+          } else {
+            undefnd = true;
+            if (item == citiesArr.length - 1) {
+              resolve(undefnd)
+            }
+          }
         }
-      }
-      setTimeout(() => {
-        resolve(undefnd)
-      }, 500);
+      console.log(`Promise выполнился`);
     })
       prms.then((result) => {
+        console.log("Then выполнился");
+        console.log(result);
         if (result) {
           let warning = document.createElement("div")
           warning.className = "warning";
@@ -78,3 +86,4 @@ function getWeather() {
 }
 
 getWeather()
+
