@@ -64,11 +64,8 @@ function getWeather() {
             }
           }
         }
-      console.log(`Promise выполнился`);
     })
       prms.then((result) => {
-        console.log("Then выполнился");
-        console.log(result);
         if (result) {
           let warning = document.createElement("div")
           warning.className = "warning";
